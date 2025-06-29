@@ -1,1 +1,11 @@
+echo "🔍 Verificando lint e format..."
 npx lint-staged
+
+status=$?
+
+if [ $status -ne 0 ]; then
+  echo "❌ Commit cancelado: erros de lint ou format."
+  exit 1
+fi
+
+echo "✅ Tudo certo! Prosseguindo com o commit..."

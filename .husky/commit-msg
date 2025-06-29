@@ -1,1 +1,11 @@
-npx --no -- commitlint --edit "$1"
+echo "📝 Validando mensagem de commit com commitlint..."
+npx commitlint --edit "$1"
+
+status=$?
+
+if [ $status -ne 0 ]; then
+  echo "❌ Mensagem inválida: use o padrão Conventional Commits (ex: feat: nova funcionalidade)"
+  exit 1
+fi
+
+echo "✅ Mensagem válida!"
