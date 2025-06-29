@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "test:ci": "jest --coverage --runInBand",
+    "test:ci": "jest --ci --coverage --coverageReporters=text --coverageReporters=lcov",
     "test:coverage": "jest --coverage",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "serve:ssr:ceccoff-angular-portifolio": "node dist/ceccoff-angular-portifolio/server/server.mjs",

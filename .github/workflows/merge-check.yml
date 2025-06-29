@@ -1,0 +1,33 @@
+name: 🚀 Workflow - Merge Check
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - develop
+
+jobs:
+  validacao-angular:
+    name: 🔧 Executar Lint, Testes e Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧾 Etapa 1 - Clonar repositório
+        uses: actions/checkout@v4
+
+      - name: 🧰 Etapa 2 - Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 Etapa 3 - Instalar dependências
+        run: npm ci
+
+      - name: 🔍 Etapa 4 - Analisar código com ESLint
+        run: npm run lint
+
+      - name: 🧪 Etapa 5 - Executar testes com cobertura
+        run: npm run test:ci
+
+      - name: 🏗️ Etapa 6 - Gerar build da aplicação Angular
+        run: npm run build
