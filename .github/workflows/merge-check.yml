@@ -1,4 +1,4 @@
-name: 🚀 Workflow - Merge Check
+name: 🛡️ Merge Check
 
 on:
   pull_request:
@@ -7,27 +7,61 @@ on:
       - main
 
 jobs:
-  validacao-angular:
-    name: 🔧 Executar Lint, Testes e Build
+  lint:
+    name: 🧹 Analisar código com ESLint
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🧾 Etapa 1 - Clonar repositório
+      - name: 🔄 Clonar repositório
         uses: actions/checkout@v4
 
-      - name: 🧰 Etapa 2 - Configurar Node.js
+      - name: ⚙️ Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: 📦 Etapa 3 - Instalar dependências
+      - name: 📦 Instalar dependências
         run: npm ci
 
-      - name: 🔍 Etapa 4 - Analisar código com ESLint
+      - name: ✅ Rodar ESLint
         run: npm run lint
 
-      - name: 🧪 Etapa 5 - Executar testes com cobertura
+  test:
+    name: 🧪 Executar testes com cobertura
+    runs-on: ubuntu-latest
+    needs: lint
+
+    steps:
+      - name: 🔄 Clonar repositório
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 Instalar dependências
+        run: npm ci
+
+      - name: ✅ Rodar testes com coverage
         run: npm run test:ci
 
-      - name: 🏗️ Etapa 6 - Gerar build da aplicação Angular
+  build:
+    name: 🏗️ Gerar build da aplicação Angular
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: 🔄 Clonar repositório
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 Instalar dependências
+        run: npm ci
+
+      - name: 🧱 Rodar build do Angular
         run: npm run build
