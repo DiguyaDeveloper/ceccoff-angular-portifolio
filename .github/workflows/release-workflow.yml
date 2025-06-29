@@ -1,0 +1,78 @@
+name: 🚀 Workflow Release - Deploy Vercel
+
+on:
+  workflow_dispatch:
+    inputs:
+      ENV:
+        description: '⚙️ Ambiente de deploy (development, staging, production)'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+
+      BASE_API_URL:
+        description: '🌐 (Opcional) Base URL da API (ex: https://api.meusite.com)'
+        required: false
+        type: string
+
+jobs:
+  deploy:
+    name: 🧱 Build e ☁️ Deploy para Vercel
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Clonar repositório
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 Instalar dependências
+        run: npm install
+
+      - name: 🧪 (Opcional) Sobrescrever baseApiUrl no environment
+        if: ${{ inputs.BASE_API_URL != '' }}
+        run: |
+          echo "🔁 Sobrescrevendo baseApiUrl no environment.${{ inputs.ENV }}.ts"
+          sed -i "s|baseApiUrl: '.*'|baseApiUrl: '${{ inputs.BASE_API_URL }}'|g" src/environments/environment.${{ inputs.ENV }}.ts
+
+      - name: 🛠️ Build da aplicação Angular
+        run: |
+          echo "🧱 Iniciando build para o ambiente: ${{ inputs.ENV }}"
+          npm run build -- --configuration=${{ inputs.ENV }}
+
+      - name: 📄 Exibir environment final antes do build
+        run: |
+          echo "🧠 Conteúdo final do environment.ts:"
+          cat src/environments/environment.ts
+
+      - name: 📂 Verificar build
+        run: |
+          if [ -d "dist" ]; then
+            echo "✅ Diretório de build encontrado!"
+          else
+            echo "❌ Diretório de build não encontrado!"
+            exit 1
+          fi
+
+      - name: ☁️ Instalar Vercel CLI
+        run: npm install -g vercel
+
+      - name: 🚀 Deploy para Vercel
+        run: |
+          DEPLOY_URL=$(vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --yes)
+          echo "DEPLOY_URL=$DEPLOY_URL" >> $GITHUB_ENV
+          echo "🔗 Deploy realizado! URL: $DEPLOY_URL"
+
+      - name: 📢 Exibir URL do Deploy
+        run: |
+          echo "✅ Aplicação publicada com sucesso em:"
+          echo "$DEPLOY_URL"
+
+      - name: 🎉 Finalizado com Sucesso
+        run: echo "🚀 Workflow de deploy concluído com sucesso! 🎯"
