@@ -3,6 +3,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "resolveJsonModule": true,
     // Segurança de tipos
     "strict": true,
     "noImplicitAny": true,
@@ -24,7 +25,6 @@
     "allowSyntheticDefaultImports": true,
     "useDefineForClassFields": false,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "baseUrl": "./src",
     "paths": {
       "@core/*": ["app/core/*"],
