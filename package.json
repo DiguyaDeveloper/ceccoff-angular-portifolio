@@ -15,7 +15,8 @@
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "serve:ssr:ceccoff-angular-portifolio": "node dist/ceccoff-angular-portifolio/server/server.mjs",
     "release": "semantic-release",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prebuild": "node ./tools/write-version.js"
   },
   "private": true,
   "dependencies": {
