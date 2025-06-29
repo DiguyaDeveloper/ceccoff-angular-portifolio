@@ -1,5 +1,4 @@
 {
   "rewrites": [{ "source": "/(.*)", "destination": "/" }],
-  "project": "ceccoff-angular-portifolio",
-  "org": "DiguyaDeveloper"
+  "project": "ceccoff-angular-portifolio"
 }
