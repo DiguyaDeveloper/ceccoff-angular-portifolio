@@ -4,17 +4,16 @@ about: Suggest an idea for this project
 title: ''
 labels: ''
 assignees: ''
-
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**🔎 Este pedido de funcionalidade está relacionado a um problema? Descreva.**
+Uma descrição clara e concisa do problema. Ex: "Fico frustrado quando [...]"
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+**✅ Descreva a solução que você gostaria**
+Uma descrição clara e objetiva do que você gostaria que acontecesse.
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**💡 Alternativas que você considerou**
+Descreva brevemente outras soluções ou funcionalidades que você já considerou.
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**📋 Contexto adicional**
+Inclua qualquer informação adicional, esboços, prints ou contexto que ajude a entender melhor a sua ideia.
