@@ -65,14 +65,7 @@ jobs:
 
       - name: 🚀 Deploy para Vercel
         run: |
-          echo "🌐 Iniciando deploy para Vercel..."
-          vercel --prod \
-            --token ${{ secrets.VERCEL_TOKEN }} \
-            --yes \
-            --project nome-do-projeto-vercel \
-            --org nome-da-organizacao-ou-usuario \
-            --cwd dist/ceccoff-angular-portifolio/browser
-
+          DEPLOY_URL=$(vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --yes dist/ceccoff-angular-portifolio/browser)
           echo "DEPLOY_URL=$DEPLOY_URL" >> $GITHUB_ENV
           echo "🔗 Deploy realizado! URL: $DEPLOY_URL"
 
