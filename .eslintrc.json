@@ -23,7 +23,7 @@
         "@angular-eslint/no-empty-lifecycle-method": "warn",
         "quotes": ["error", "single"],
         "semi": ["error", "always"],
-        "no-console": "warn"
+        "no-console": ["warn", { "allow": ["warn", "error", "info"] }]
       }
     },
     {
