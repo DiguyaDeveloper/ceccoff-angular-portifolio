@@ -1,0 +1,13 @@
+echo "🧪 Running tests before push..."
+
+# Roda os testes com cobertura mínima, sem gerar HTML, falha se limiares não forem atingidos
+npx jest --bail --coverage --coverageReporters="text-summary" --silent
+
+status=$?
+
+if [ $status -ne 0 ]; then
+  echo "❌ Push bloqueado: testes falharam ou cobertura abaixo do esperado."
+  exit 1
+fi
+
+echo "✅ Testes passaram. Prosseguindo com push..."
