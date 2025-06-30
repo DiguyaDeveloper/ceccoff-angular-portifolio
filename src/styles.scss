@@ -107,6 +107,21 @@
   background-size: 20px 20px;
 }
 
+.bg-asce {
+  background-image:
+    url('assets/images/bg-asce-light.png'),
+    radial-gradient(circle at 10px 10px, rgba(255, 255, 255, 0.04) 1px, transparent 0),
+    radial-gradient(circle at 30px 30px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size:
+    cover,
+    20px 20px;
+  background-position:
+    center,
+    0 0;
+  background-repeat: no-repeat, repeat;
+  background-blend-mode: screen;
+}
+
 @keyframes spin-slow {
   from {
     transform: rotate(0deg);
