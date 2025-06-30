@@ -26,6 +26,17 @@ const config: Config.InitialOptions = {
     '<rootDir>/src/environments/', // Environments
   ],
 
+  moduleNameMapper: {
+    '^@core/(.*)$': '<rootDir>/src/app/core/$1',
+    '^@atoms/(.*)$': '<rootDir>/src/app/shared/components/atoms/$1',
+    '^@molecules/(.*)$': '<rootDir>/src/app/shared/components/molecules/$1',
+    '^@organisms/(.*)$': '<rootDir>/src/app/shared/components/organisms/$1',
+    '^@pages/(.*)$': '<rootDir>/src/app/modules/pages/$1',
+    '^@layout/(.*)$': '<rootDir>/src/app/layout/$1',
+    '^@environments/(.*)$': '<rootDir>/src/environments/$1',
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+  },
+
   // Meta mínima de cobertura global
   coverageThreshold: {
     global: {
