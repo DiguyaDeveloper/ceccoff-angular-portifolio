@@ -1,0 +1,23 @@
+<button
+  [ngClass]="[variantClasses, 'px-10 py-5 font-display font-semibold text-lg transition-all duration-300 cursor-pointer relative overflow-hidden group']"
+>
+  <!-- pseudo-elemento visual no lugar do ::before -->
+  <span
+    class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent -translate-x-full transition-transform duration-700 group-hover:translate-x-full"
+    *ngIf="variant === 'primary'"
+  ></span>
+  <span
+    class="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-transparent -translate-x-full transition-transform duration-700 group-hover:translate-x-full"
+    *ngIf="variant === 'secondary'"
+  ></span>
+
+  <span class="relative z-10 flex items-center gap-3">
+    @if (variant === 'primary') {
+    <span class="font-mono text-lg opacity-80">&gt;</span>
+    }
+    <ng-content></ng-content>
+    @if (variant === 'secondary') {
+    <span class="font-mono text-lg opacity-80">_</span>
+    }
+  </span>
+</button>
