@@ -1,0 +1,33 @@
+name: 🚀 Release
+
+description: Gera versão e changelog automaticamente com base nos commits.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  release:
+    name: 🔖 Criar nova release
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🧾 Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: 🧰 Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 📦 Instalar dependências
+        run: npm ci
+
+      - name: 🚀 Executar Semantic Release
+        run: npx semantic-release
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
