@@ -9,7 +9,7 @@ type ButtonVariant = 'primary' | 'secondary';
   templateUrl: './button.html',
   styleUrl: './button.scss',
 })
-export class Button {
+export class ButtonComponent {
   @Input() variant: ButtonVariant = 'primary';
 
   get variantClasses(): string {
