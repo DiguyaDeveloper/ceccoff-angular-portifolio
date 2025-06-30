@@ -9,6 +9,4 @@ import { HeaderComponent } from '@organisms/header/header.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'ceccoff-angular-portifolio';
-}
+export class AppComponent {}
