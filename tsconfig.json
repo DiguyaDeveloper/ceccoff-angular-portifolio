@@ -28,7 +28,6 @@
     "baseUrl": "./src",
     "paths": {
       "@core/*": ["app/core/*"],
-      "@shared/*": ["app/shared/*"],
       "@atoms/*": ["app/shared/components/atoms/*"],
       "@molecules/*": ["app/shared/components/molecules/*"],
       "@organisms/*": ["app/shared/components/organisms/*"],

@@ -1,0 +1,131 @@
+<section class="bg-slate-900 bg-asce min-h-screen flex items-center px-6 relative overflow-hidden">
+  <!-- Animated background elements -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div
+      class="absolute top-20 left-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl animate-pulse"
+    ></div>
+    <div
+      class="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000"
+    ></div>
+    <div
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-500"
+    ></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+    <!-- Left Content -->
+    <div class="space-y-12">
+      <div class="space-y-8">
+        <div class="font-mono text-xs text-gray-400 mb-6">
+          <span class="text-emerald-400">$</span> whoami
+        </div>
+
+        <div class="border-l-4 border-gradient-to-b from-orange-500 to-cyan-500 pl-8 relative">
+          <div
+            class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 to-cyan-500"
+          ></div>
+          <h2 class="text-white text-2xl font-display font-light tracking-wide">
+            Eu sou
+            <span
+              class="font-bold bg-gradient-to-r from-orange-500 to-cyan-500 bg-clip-text text-transparent"
+            >
+              Diego Ceccon
+            </span>
+          </h2>
+        </div>
+
+        <div class="space-y-4 gap-4">
+          <h3 class="text-white text-6xl font-display font-bold tracking-tight leading-tight">
+            <span
+              class="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent"
+            >
+              Software Engineer <br />
+            </span>
+            <span
+              class="bg-gradient-to-r from-orange-500 via-cyan-500 to-purple-500 bg-clip-text text-transparent text-glow"
+            >
+              Full-Stack
+            </span>
+          </h3>
+        </div>
+
+        <div class="font-mono text-lg text-gray-500 mt-8 space-y-2">
+          <div>
+            <span class="text-purple-400">const</span>
+            <span class="text-cyan-400"> objective</span> =
+            <span class="text-emerald-400"> "Ser referência"</span>;
+          </div>
+          <div>
+            <span class="text-purple-400">const</span>
+            <span class="text-cyan-400"> experience</span> =
+            <span class="text-orange-400"> 7000xp</span>;
+          </div>
+          <div>
+            <span class="text-purple-400">const</span>
+            <span class="text-cyan-400"> creativity</span> =
+            <span class="text-emerald-400"> ∞</span>;
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-6">
+        <a href="cv-diego-ceccon.pdf" download="cv-diego-ceccon.pdf">
+          <app-button variant="secondary"> Baixe meu currículo </app-button>
+        </a>
+      </div>
+
+      <!-- Skills -->
+      <div class="pt-12">
+        <div class="font-mono text-lg text-gray-400 mb-6">
+          <span class="text-emerald-400">$</span> cat core-skills.json
+        </div>
+        <div class="flex flex-wrap gap-6">
+          <span
+            *ngFor="let skill of skills"
+            class="font-mono text-xl text-gray-300 hover:text-orange-400 transition-all duration-300 cursor-pointer border border-slate-700 hover:border-orange-500/50 px-4 py-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 backdrop-blur-sm hover:shadow-lg hover:shadow-orange-500/20 hover:scale-105"
+          >
+            {{ skill }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Content - Profile Image -->
+    <div class="flex justify-center lg:justify-end relative">
+      <div class="relative group">
+        <div
+          class="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500 via-cyan-500 to-purple-500 p-1 animate-spin-slow"
+        >
+          <div class="w-full h-full rounded-full bg-slate-900"></div>
+        </div>
+        <div
+          class="w-96 h-96 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full absolute -z-10 top-4 left-4 blur-sm opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+        ></div>
+        <div
+          class="overflow-hidden flex items-center justify-center relative z-10 border-2 border-slate-700 group-hover:border-orange-500/50 transition-all duration-500"
+        >
+          <img
+            src="assets/images/dev.png"
+            alt="Diego Ceccon"
+            class="w-full max-h-[600px] object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+        </div>
+        <div
+          class="absolute -top-12 -right-12 text-orange-500 text-6xl opacity-60 font-mono animate-bounce"
+        >
+          &lt;/&gt;
+        </div>
+        <div
+          class="absolute -bottom-12 -left-12 text-cyan-500 text-6xl opacity-60 font-mono animate-bounce delay-500"
+        >
+          {{ '{}' }}
+        </div>
+        <div
+          class="absolute top-1/2 -right-16 text-purple-500 text-5xl opacity-60 font-mono animate-pulse"
+        >
+          [ ]
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
